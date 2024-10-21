@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversario 3th - Rompecabezas</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlazamos el CSS aquí -->
+</head>
+<body>
+    <div class="ocean-background">
+        <div class="alga"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="jellyfish" style="top: 35%; left: 10%;"></div>
+        <div class="jellyfish" style="top: 18%; left: 35%;"></div>
+        <div class="koi" style="top: 75%; left: 40%;"></div>
+        <div class="koi" style="top: 70%; left: 40%;"></div>
+        <div class="bubble" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="bubble" style="left: 60%; animation-delay: 0.5s;"></div>
+        <div class="bubble" style="left: 22%; animation-delay: 1s;"></div>
+        <div class="bubble" style="left: 40%; animation-delay: 1.5s;"></div>
+        <div class="bubble" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="bubble" style="left: 90%; animation-delay: 2.5s;"></div>
+        <div class="bubble" style="left: 80%; animation-delay: 3s;"></div>
+        <div class="bubble" style="left: 20%; animation-delay: 3.5s;"></div>
+        <div class="bubble" style="left: 70%; animation-delay: 4s;"></div>
+        
+    </div>
+
+    <audio id="background-music" controls>
+        <source src="musica.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    
+
+    <div class="container">
+        <div class="left-column">
+            <h1>¡Feliz aniversario 3th!</h1>
+            <p class="message">Sé que no es la gran cosa, pero lo hice con mucho amor. Se me ocurrió hacerte un rompecabezas con nuestras fotos de lindos momentos juntos. Gracias por todo este tiempo; quiero seguir a tu lado todo el tiempo que tenga. Espero te guste el detalle, aunque aún no se programar bien, pero hice lo que pude <3.</p>
+            <div class="controls">
+                <button id="shuffleButton">Mezclar piezas</button>
+                <button id="changeImageButton">Cambiar imagen</button>
+            </div>
+        </div>
+        <div class="right-column">
+            <canvas id="puzzleCanvas" width="460" height="520"></canvas>
+        </div>
+    </div>
+    <script src="script.js"></script> <!-- Enlazamos el JS aquí -->
+</body>
+</html>

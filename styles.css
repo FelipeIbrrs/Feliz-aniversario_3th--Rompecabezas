@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Noto Serif JP', serif;
+    background-color: #0a192f;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.left-column {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para el encabezado h1 */
+/* Estilo para el encabezado h1 - sensación de estar bajo el agua */
+h1 {
+    font-size: 2.5rem;
+    color: #5e8597; /* Azul profundo para reflejar la profundidad del agua */
+    font-weight: 300;
+    text-align: center; /* Centrar para simular balanceo */
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombras suaves para un efecto borroso */
+    animation: floatText 6s ease-in-out infinite; /* Animación para dar movimiento suave */
+    position: relative;
+}
+
+/* Estilo para el párrafo con un toque de elegancia subacuática */
+.message {
+    font-size: 1.15rem;
+    color: #bcddff; /* Color de texto más suave y gris azulado */
+    text-align: justify;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto; /* Centra el texto horizontalmente */
+    background-color: rgba(155, 207, 241, 0.295); /* Fondo translúcido para simular agua */
+    padding: 1rem 1.5rem;
+    border-left: 4px solid rgba(52, 152, 219, 0.5); /* Barra azul sutil */
+    border-radius: 10px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15); /* Sombra suave para efecto de "flotación" */
+    backdrop-filter: blur(5px); /* Difumina el fondo ligeramente */
+    animation: floatText 8s ease-in-out infinite; /* Movimiento suave */
+}
+
+/* Animación de flotación para los elementos */
+@keyframes floatText {
+    0%, 100% {
+        transform: translateY(0); /* Posición inicial y final */
+    }
+    50% {
+        transform: translateY(-10px); /* Movimiento hacia arriba en el medio del ciclo */
+    }
+}
+
+
+#puzzleCanvas {
+    border: 2px solid #4a8fe7;
+    box-shadow: 0 0 20px rgba(74, 143, 231, 0.5);
+}
+
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    background-color: #4a8fe7;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Serif JP', serif;
+}
+
+button:hover {
+    background-color: #3a7fd7;
+    transform: translateY(-2px);
+}
+
+.ocean-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #0a192f 0%, #1e3a8a 100%);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('olas.svg');
+    background-size: 1440px 100px;
+    animation: wave 10s linear infinite;
+}
+
+.wave:nth-child(2) {
+    bottom: 10px;
+    opacity: 0.5;
+    animation: wave 7s linear infinite;
+}
+
+.wave:nth-child(3) {
+    bottom: 20px;
+    opacity: 0.2;
+    animation: wave 5s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1440px);
+    }
+}
+
+.jellyfish, .koi {
+    position: absolute;
+    opacity: 0.6;
+    animation: floatt 20s infinite;
+}
+
+.jellyfish {
+    width: 100px;
+    height: 100px;
+    background: url('medusa.svg') no-repeat;
+}
+
+.alga{
+    position: absolute;
+    bottom: 0; /* Para posicionar las algas en la parte inferior */
+    animation: sway 4s ease-in-out infinite; /* Llama a la animación "sway" */
+    width: 100px;
+    height: 100px;
+    background: url('alga.svg') no-repeat;
+}
+
+.koi {
+    position: absolute;
+    bottom: 50%;
+    width: 85px;
+    height: 85px;
+    background: url('koi.svg');
+    animation: swim 3s ease-in-out infinite, swimAcross 5s linear infinite; /* Llama a las animaciones "swim" y "swimAcross" */
+}
+
+
+@keyframes floatt {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    20% {
+        transform: translateY(-70px) rotate(5deg) scale(1.05); /* Sube un poco y rota */
+    }
+    40% {
+        transform: translateY(-50px) rotate(-5deg) scale(1.1); /* Sube más alto y rota al otro lado */
+    }
+    60% {
+        transform: translateY(-25px) rotate(2deg) scale(1.02); /* Ajusta la altura hacia arriba */
+    }
+    80% {
+        transform: translateY(-35px) rotate(0deg) scale(1); /* Regresa ligeramente */
+    }
+    100% {
+        transform: translateY(0) rotate(0deg) scale(1); /* Regresa a la posición original */
+    }
+}
+
+
+@keyframes sway {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Movimiento hacia arriba */
+    }
+    100% {
+        transform: translateY(0); /* Regresa a la posición inicial */
+    }
+}
+@keyframes swim {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg); /* Comienza y termina en su posición original */
+    }
+    25% {
+        transform: translateY(-20px) rotate(15deg); /* Mueve hacia arriba y rota */
+    }
+    75% {
+        transform: translateY(20px) rotate(-15deg); /* Mueve hacia abajo y rota en sentido contrario */
+    }
+}
+
+@keyframes swimAcross {
+    0% {
+        left: -100px; /* Empieza fuera de la pantalla */
+    }
+    100% {
+        left: 100vw; /* Termina en el lado derecho de la pantalla */
+    }
+}
+
+.bubble {
+    position: absolute;
+    bottom: 0; /* Comienza en la parte inferior */
+    left: calc(50% - 25px); /* Centra horizontalmente la burbuja */
+    width: 70px; /* Tamaño de la burbuja */
+    height: 70px; /* Tamaño de la burbuja */
+    background: url('burbujas.svg');
+    animation: float 6s ease-in infinite; /* Animación de burbujas */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0); /* Comienza en la parte inferior */
+        opacity: 1; /* Totalmente visible */
+    }
+    100% {
+        transform: translateY(-100vh); /* Sube hasta la parte superior */
+        opacity: 0; /* Desaparece gradualmente */
+    }
+}
+
+/* Estilizar el controlador de audio */
+audio {
+    width: 200px; /* Tamaño más pequeño para mantenerlo discreto */
+    border-radius: 10px; /* Bordes redondeados suaves */
+    background-color: rgba(0, 0, 50, 0.2); /* Fondo azul oscuro casi transparente */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    border: none; /* Sin borde visible */
+    opacity: 0.2; /* Controlador casi invisible */
+    transition: opacity 0.3s ease-in-out; /* Suavizar el cambio de opacidad */
+    outline: none; /* Quitar borde predeterminado */
+    color: white; /* Color del texto e íconos blanco */
+}
+
+audio:hover {
+    opacity: 0.8; /* Al pasar el ratón por encima, hacerlo más visible */
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: transparent; /* Fondo del panel transparente */
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider {
+    filter: brightness(1.2); /* Mantener los botones visibles */
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: rgb(24, 24, 71); /* Color del texto en blanco */
+}
+
+
+/* Posicionar el controlador en la parte inferior derecha */
+#background-music {
+    position: fixed;
+    top: 20px;  /* Distancia desde la parte superior */
+    left: 20px; /* Distancia desde el lado izquierdo */
+    z-index: 1000; /* Asegura que esté en la parte superior del contenido */
+}
+
+/* Opcional: Animación suave al hacer hover en el controlador */
+#background-music:hover {
+    transform: scale(1.05); /* Aumenta un poco el tamaño al pasar el ratón */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
